@@ -6,17 +6,16 @@ angular.module('starter.controllers', [])
   $scope.pets = PetService.all();
 
   $scope.launchPhotoLibrary = function() {
-    console.log('button clicked');
     navigator.camera.getPicture( cameraSuccess, cameraError,
-                                { destinationType: navigator.camera.DestinationType.FILE_URI,
-                                  sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY } );
+                                { sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY } );
   };
   function cameraSuccess(imageURI) {
-    console.log(imageURI);
     $scope.image = document.getElementById('myImage');
+    if (imageURI.substring(0,21)=="content://com.android") {
+      var photo_split=imageURI.split("%3A");
+      imageURI="content://media/external/images/media/"+photo_split[1];
+    }
     $scope.image.src = imageURI;
-    //$scope.image.src = "img/ionic.png";
-    console.log($scope.image.src);
   }
   function cameraError(message) {
     alert('Failed because: ' + message);

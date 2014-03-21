@@ -37,3 +37,8 @@
   -ms-flex-align: center;
   align-items: center;
 }
+
+#myImage {
+  width: 100px;
+  height: 100px;
+}
