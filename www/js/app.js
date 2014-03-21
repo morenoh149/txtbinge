@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       views: {
         'select-tab': {
           templateUrl: 'templates/select-image.html',
-          controller: 'PetIndexCtrl'
+          controller: 'SelectPicCtrl'
         }
       }
     })
